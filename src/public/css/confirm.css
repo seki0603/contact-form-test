@@ -50,14 +50,15 @@
 }
 
 .button__wrapper {
-  position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 30px;
 }
 
 .form__button {
   width: 120px;
+  margin-right: 30px;
 }
 
 .form__button-submit {
@@ -71,14 +72,18 @@
   cursor: pointer;
 }
 
-.form__return {
-  position: absolute;
-  bottom: 5px;
-  left: 65%;
-  transform: translateX(-65%);
+.return__button {
+  width: 100px;
+
 }
 
-.form__return-link {
-  color: #8B7969;
+.return__button-submit {
+  width: 100%;
+  height: auto;
+  padding: px;
   font-size: 20px;
+  color: #8B7969;
+  text-decoration: underline;
+  background: transparent;
+  border: none;
 }

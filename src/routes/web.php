@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +16,6 @@ use App\Http\Controllers\ContactController;
 |
 */
 
-Route::get('/', [ContactController::class, 'index']);
-Route::post('/contacts/confirm', [ContactController::class, 'confirm']);
-Route::post('/contacts', [ContactController::class, 'store']);
+Route::get('/', [ContactController::class, 'index'])->name('contacts.index');
+Route::post('/contacts/confirm', [ContactController::class, 'confirm'])->name('contacts.confirm');
+Route::post('/contacts/store', [ContactController::class, 'store'])->name('contacts.store');
