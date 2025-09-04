@@ -38,6 +38,10 @@ h2 {
 .header__button-link {
   width: 100%;
   height: 30px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background: #F4F4F4;
   border: 1px solid #D9C6B5;
   color: #D9C6B5;
   font-size: 18px;

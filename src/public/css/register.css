@@ -10,7 +10,7 @@ main {
 
 .form__wrapper {
   width: 70%;
-  height: 650px;
+  height: auto;
   margin: 30px auto;
   background: #fff;
   text-align: center;
@@ -23,6 +23,7 @@ main {
 
 .form {
   width: 60%;
+  margin: 30px 0;
 }
 
 .form__item {
@@ -48,6 +49,11 @@ main {
 
 input::placeholder {
   color: #BEB1A6;
+}
+
+.error {
+  font-size: 18px;
+  color: #EB5757;
 }
 
 .form__button {

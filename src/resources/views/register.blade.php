@@ -17,9 +17,9 @@
   <header class="header">
     <div class="header__inner">
       <h1 class="header__logo">FashionablyLate</h1>
-      <form class="header__button" action="">
-        <button class="header__button-link">login</button>
-      </form>
+      <div class="header__button">
+        <a class="header__button-link" href="{{ route('login') }}">login</a>
+      </div>
     </div>
   </header>
 
@@ -27,19 +27,35 @@
     <div class="content">
       <h2 class="content__title">Register</h2>
       <div class="form__wrapper">
-        <form class="form" action="">
+        <form class="form" action="{{ route('register.store') }}" method="POST">
+          @csrf
           <div class="form__inner">
             <div class="form__item">
               <label class="form__item-title">お名前</label>
-              <input class="form__item-input" type="text" placeholder="例: 山田　太郎" />
+              <input class="form__item-input" type="text" name="name" placeholder="例: 山田  太郎" value="{{ old('name') }}" />
+              <div class="error">
+                @error('name')
+                    {{ $message }}
+                @enderror
+              </div>
             </div>
             <div class="form__item">
               <label class="form__item-title">メールアドレス</label>
-              <input class="form__item-input" type="text" placeholder="例: test@example.com" />
+              <input class="form__item-input" type="text" name="email" placeholder="例: test@example.com" value="{{ old('email') }}" />
+              <div class="error">
+                @error('email')
+                    {{ $message }}
+                @enderror
+              </div>
             </div>
             <div class="form__item">
               <label class="form__item-title">パスワード</label>
-              <input class="form__item-input" type="text" placeholder="例: coachtech1106" />
+              <input class="form__item-input" type="password" name="password" placeholder="例: coachtech1106" value="{{ old('password') }}" />
+              <div class="error">
+                @error('password')
+                    {{ $message }}
+                @enderror
+              </div>
             </div>
           </div>
           <div class="form__button">

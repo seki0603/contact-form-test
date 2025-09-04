@@ -16,9 +16,9 @@
   <header class="header">
     <div class="header__inner">
       <h1 class="header__logo">FashionablyLate</h1>
-      <form class="header__button" action="/logout" method="POST">
+      <form class="header__button" action="{{ route('logout') }}" method="POST">
         @csrf
-        <button class="header__button-link">logout</button>
+        <button class="header__button-link" type="submit">logout</button>
       </form>
     </div>
   </header>

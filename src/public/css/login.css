@@ -50,6 +50,11 @@ input::placeholder {
   color: #BEB1A6;
 }
 
+.error {
+  font-size: 18px;
+  color: #EB5757;
+}
+
 .form__button {
   width: 140px;
   margin: 0 auto;

@@ -17,9 +17,9 @@
   <header class="header">
     <div class="header__inner">
       <h1 class="header__logo">FashionablyLate</h1>
-      <form class="header__button" action="">
-        <button class="header__button-link">register</button>
-      </form>
+      <div class="header__button">
+        <a class="header__button-link" href="{{ route('register') }}">register</a>
+      </div>
     </div>
   </header>
 
@@ -27,15 +27,26 @@
     <div class="content">
       <h2 class="content__title">Login</h2>
       <div class="form__wrapper">
-        <form class="form" action="">
+        <form class="form" action="{{ route('login') }}" method="POST">
+          @csrf
           <div class="form__inner">
             <div class="form__item">
               <label class="form__item-title">メールアドレス</label>
-              <input class="form__item-input" type="text" placeholder="例: test@example.com" />
+              <input class="form__item-input" type="text" name="email" placeholder="例: test@example.com" />
+              <div class="error">
+                @error('email')
+                    {{ $message }}
+                @enderror
+              </div>
             </div>
             <div class="form__item">
               <label class="form__item-title">パスワード</label>
-              <input class="form__item-input" type="text" placeholder="例: coachtech1106" />
+              <input class="form__item-input" type="password" name="password" placeholder="例: coachtech1106" />
+              <div class="error">
+                @error('password')
+                    {{ $message }}
+                @enderror
+              </div>
             </div>
           </div>
           <div class="form__button">
