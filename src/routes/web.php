@@ -24,6 +24,8 @@ Route::post('/contacts/store', [ContactController::class, 'store'])->name('conta
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register/store', [UserController::class, 'store'])->name('register.store');
 Route::get('/login', [UserController::class, 'loginView'])->name('login');
+
+// ログイン機能・バインド
 Route::post('/login', [\Laravel\Fortify\Http\Controllers\AuthenticatedSessionController::class, 'store']);
 
 Route::middleware('auth')->group(function () {

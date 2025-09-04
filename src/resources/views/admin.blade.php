@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap" rel="stylesheet" />
+  @livewireStyles
 </head>
 
 <body>
@@ -24,9 +25,9 @@
   </header>
 
   <main>
-    管理画面
+    @livewire('admin-contacts')
   </main>
-
+  @livewireScripts
 </body>
 
 </html>
