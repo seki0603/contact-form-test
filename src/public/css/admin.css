@@ -27,6 +27,19 @@ body {
   transform: translateX(-10%);
 }
 
+.header__button-link {
+  width: 100%;
+  height: 30px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background: #F4F4F4;
+  border: 1px solid #D9C6B5;
+  color: #D9C6B5;
+  font-size: 18px;
+  font-family: "Inika";
+}
+
 .content {
   max-width: 1000px;
   margin: 0 auto;
@@ -36,4 +49,320 @@ body {
   font-size: 35px;
   font-weight: 400;
   text-align: center;
+}
+
+.search-form {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.search-form__text {
+  width: 30%;
+  margin: 0 5px;
+}
+
+.search-form__text input {
+  width: 100%;
+  height: 40px;
+  background: #FBFBFB;
+  border: 1px solid #E3DED9;
+  padding: 10px;
+  outline: none;
+  color: #8B7969;
+}
+
+.search-form__text input::placeholder {
+  color: #BEB1A6;
+}
+
+.search-form__gender {
+  width: 7%;
+  margin: 0 5px;
+  position: relative;
+}
+
+.search-form__gender::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: 8px;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  border-top: 15px solid #E0DFDE;
+  border-bottom: 0;
+  cursor: pointer;
+}
+
+.search-form__gender select {
+  width: 100%;
+  height: 40px;
+  text-align: left;
+  padding: 5px;
+  background: #FBFBFB;
+  color: #8B7969;
+  font-size: 16px;
+  border: 1px solid #E3DED9;
+  cursor: pointer;
+  appearance: none;
+}
+
+.search-form__category {
+  width: 20%;
+  margin: 0 5px;
+  position: relative;
+}
+
+.search-form__category::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  border-top: 15px solid #E0DFDE;
+  border-bottom: 0;
+  cursor: pointer;
+}
+
+.search-form__category select {
+  width: 100%;
+  height: 40px;
+  color: #8B7969;
+  border: 1px solid #E3DED9;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 15px;
+  background: #FBFBFB;
+  appearance: none;
+}
+
+/* ラッパー */
+.search-form__date {
+  position: relative;
+  display: inline-block;
+  width: 12%;
+  /* 好みで調整 */
+}
+
+/* 初期表示の「年/月/日」 */
+.search-form__date::before {
+  content: "年/月/日";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8B7969;
+  pointer-events: none;
+  /* 入力操作を邪魔しない */
+  font-size: 14px;
+}
+
+/* 日付が入力されたら消える */
+.search-form__date:has(.custom-date:valid)::before {
+  content: "";
+}
+
+/* input 本体 */
+.custom-date {
+  width: 100%;
+  height: 40px;
+  color: #8B7969;
+  background: #FBFBFB;
+  padding: 0 32px 0 5px;
+  /* 矢印分の余白を右に確保 */
+  border: 1px solid #E3DED9;
+}
+
+/* デフォルトのカレンダーアイコンを非表示 */
+.custom-date::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  /* 完全に透明 */
+  cursor: pointer;
+  /* カーソルを残す */
+  width: 100%;
+  /* 入力全体でクリックできるように */
+  height: 100%;
+  position: absolute;
+  /* input 全体に被せる */
+  left: 0;
+  top: 0;
+}
+
+.custom-date::-ms-clear,
+.custom-date::-ms-expand {
+  display: none;
+}
+
+/* 自作の矢印 */
+.search-form__date::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  border-top: 15px solid #E0DFDE;
+  border-bottom: 0;
+  cursor: pointer;
+}
+
+.search-form__button {
+  width: 100px;
+  margin: 0 5px;
+}
+
+.search-form__button-submit {
+  width: 100%;
+  height: 40px;
+  background: #8B7969;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.search-form__button-reset {
+  width: 100%;
+  height: 40px;
+  background: #D9C6B5;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.content__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 5px;
+}
+
+.content__csv button {
+  width: 150px;
+  height: 35px;
+  padding: 5px 10px;
+  background: #E1DBD699;
+  color: #8B7969;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.content-pagination {
+  max-width: 25%;
+  overflow-x: auto;
+}
+
+.content-pagination nav ul.pagination {
+  width: fit-content;
+  margin: 0 auto;
+  display: flex;
+}
+
+.content-pagination nav li.page-item {
+  flex: 0 0 auto;
+}
+
+.content-pagination nav .page-link {
+  min-width: 20px;
+  height: 30px;
+  line-height: normal;
+  padding: 10px 12px;
+  text-align: center;
+  border: 1px solid #E0DFDE;
+  border-radius: 3px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #8B7969;
+  background: none;
+  cursor: pointer;
+}
+
+.content-pagination nav .page-item.active .page-link {
+  background-color: #8B7969;
+  color: #fff;
+  border-color: #8B7969;
+  font-size: 15px;
+}
+
+.contact-table {
+  width: 98%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.content-table__row {
+  height: 60px;
+}
+
+.contact-table th {
+  background-color: #8B7969;
+  padding: 15px 30px;
+  color: #fff;
+  border: 1px solid #8B7969;
+}
+
+.contact-table td {
+  padding: 15px 30px;
+  border-bottom: 1px solid #E0DFDE;
+}
+
+.table__item-name {
+  border-left: 1px solid #E0DFDE;
+}
+
+.table__item-button {
+  border-right: 1px solid #E0DFDE;
+}
+
+.table__item-button button {
+  width: 60px;
+  font-size: 15px;
+  padding: 5px;
+  border: 1px solid #D9C6B5;
+  background: #F4F4F44D;
+  color: #D9C6B5;
+}
+
+/* モーダル */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* 背景を暗く */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  /* 手前に出す */
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
 }

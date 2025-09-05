@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Contact Form</title>
   <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
@@ -25,7 +26,10 @@
   </header>
 
   <main>
+    <div class="content">
+      <h2 class="content__title">Admin</h2>
     @livewire('admin-contacts')
+    </div>
   </main>
   @livewireScripts
 </body>
