@@ -138,15 +138,12 @@ body {
   appearance: none;
 }
 
-/* ラッパー */
 .search-form__date {
   position: relative;
   display: inline-block;
   width: 12%;
-  /* 好みで調整 */
 }
 
-/* 初期表示の「年/月/日」 */
 .search-form__date::before {
   content: "年/月/日";
   position: absolute;
@@ -155,37 +152,28 @@ body {
   transform: translateY(-50%);
   color: #8B7969;
   pointer-events: none;
-  /* 入力操作を邪魔しない */
   font-size: 14px;
 }
 
-/* 日付が入力されたら消える */
 .search-form__date:has(.custom-date:valid)::before {
   content: "";
 }
 
-/* input 本体 */
 .custom-date {
   width: 100%;
   height: 40px;
   color: #8B7969;
   background: #FBFBFB;
   padding: 0 32px 0 5px;
-  /* 矢印分の余白を右に確保 */
   border: 1px solid #E3DED9;
 }
 
-/* デフォルトのカレンダーアイコンを非表示 */
 .custom-date::-webkit-calendar-picker-indicator {
   opacity: 0;
-  /* 完全に透明 */
   cursor: pointer;
-  /* カーソルを残す */
   width: 100%;
-  /* 入力全体でクリックできるように */
   height: 100%;
   position: absolute;
-  /* input 全体に被せる */
   left: 0;
   top: 0;
 }
@@ -195,7 +183,6 @@ body {
   display: none;
 }
 
-/* 自作の矢印 */
 .search-form__date::after {
   content: "";
   position: absolute;
@@ -330,8 +317,6 @@ body {
   color: #D9C6B5;
 }
 
-/* モーダル */
-
 .modal {
   position: fixed;
   top: 0;
@@ -339,30 +324,63 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  /* 背景を暗く */
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  /* 手前に出す */
 }
 
 .modal-content {
   background: #fff;
-  padding: 2rem;
-  border-radius: 8px;
+  padding: 20px;
   max-width: 600px;
   width: 90%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  height: auto;
+  box-shadow: 0 4px 12px #8B796940;
   position: relative;
 }
 
 .modal-content .close {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.5rem;
-  border: none;
+  top: 20px;
+  right: 25px;
+  font-size: 20px;
+  border: 1px solid #8B7969;
+  border-radius: 50%;
+  color: #8B7969;
   background: none;
+  cursor: pointer;
+}
+
+.modal-table {
+  width: 80%;
+  margin: 60px auto;
+  height: 50%;
+}
+
+.modal-table__row {
+  height: 40px
+}
+
+.modal-table__header {
+  width: 40%;
+  text-align: left;
+}
+
+.modal-table__header--top {
+  vertical-align: top;
+  text-align: left;
+  padding-top: 5px;
+}
+
+.delete {
+  display: block;
+  margin: 20px auto;
+  width: 80px;
+  height: 40px;
+  background: #BA370D;
+  font-size: 18px;
+  color: #fff;
+  border: none;
   cursor: pointer;
 }

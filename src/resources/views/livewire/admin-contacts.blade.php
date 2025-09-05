@@ -86,41 +86,56 @@
 		<div class="modal-content">
 			<button class="close" type="button" wire:click="closeModal">×</button>
 
-			<table>
-				<tr>
-					<th>お名前</th>
-					<td>{{ $selectedContact->full_name }}</td>
+			<table class="modal-table">
+				<tr class="modal-table__row">
+					<th class="modal-table__header">お名前</th>
+					<td class="modal-table__data">
+						{{ $selectedContact->full_name }}
+					</td>
 				</tr>
-				<tr>
-					<th>性別</th>
-					<td>{{ $selectedContact->gender_label }}</td>
+				<tr class="modal-table__row">
+					<th class="modal-table__header">性別</th>
+					<td class="modal-table__data">
+						{{ $selectedContact->gender_label }}
+					</td>
 				</tr>
-				<tr>
-					<th>メールアドレス</th>
-					<td>{{ $selectedContact->email }}</td>
+				<tr class="modal-table__data">
+					<th class="modal-table__header">メールアドレス</th>
+					<td class="modal-table__data">
+						{{ $selectedContact->email }}
+					</td>
 				</tr>
-				<tr>
-					<th>電話番号</th>
-					<td>{{ $selectedContact->tel }}</td>
+				<tr class="modal-table__row">
+					<th class="modal-table__header">電話番号</th>
+					<td class="modal-table__data">
+						{{ $selectedContact->tel }}
+					</td>
 				</tr>
-				<tr>
-					<th>住所</th>
-					<td>{{ $selectedContact->address }}</td>
+				<tr class="modal-table__row">
+					<th class="modal-table__header">住所</th>
+					<td class="modal-table__data">
+						{{ $selectedContact->address }}
+					</td>
 				</tr>
-				<tr>
-					<th>建物名</th>
-					<td>{{ $selectedContact->building }}</td>
+				<tr class="modal-table__row">
+					<th class="modal-table__header">建物名</th>
+					<td class="modal-table__data">
+						{{ $selectedContact->building }}
+					</td>
 				</tr>
-				<tr>
-					<th>お問い合わせの種類</th>
-					<td>{{ $selectedContact->category->content }}</td>
+				<tr class="modal-table__row">
+					<th class="modal-table__header">お問い合わせの種類</th>
+					<td class="modal-table__data">
+						{{ $selectedContact->category->content }}
+					</td>
 				</tr>
-				<tr>
-					<th>お問い合わせ内容</th>
-					<td>{{ $selectedContact->detail }}</td>
+				<tr class="modal-table__row">
+					<th class="modal-table__header--top">お問い合わせ内容</th>
+					<td class="modal-table__data">
+						{{ $selectedContact->detail }}
+					</td>
 				</tr>
 			</table>
-
 			<button class="delete" type="button" wire:click="delete({{ $selectedContact->id }})">削除</button>
 		</div>
 	</div>
