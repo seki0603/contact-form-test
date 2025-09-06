@@ -49,9 +49,3 @@ Password: coachtech
 - 開発環境：http://localhost/
 - phpMyAdmin：http://localhost:8080/
 
-## 補足事項
-
-- Users テーブルは他のテーブルとリレーションを持たないため独立。
-- 機能確認用に Users テーブルへダミーユーザーをシーダーで作成しています。  
-  ログイン情報は以下の通りです。  
-
