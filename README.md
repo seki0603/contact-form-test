@@ -4,7 +4,7 @@
 
 ### Docker ビルド
 
-1. `git clone git@github.com:seki0603/contact-form-test.git`
+1. `git clone git@github.com:seki0603/contact-form.git`
 2. cd contact-form-test
 3. mkdir docker/mysql/data
 4. docker-compose up -d --build
