@@ -104,13 +104,64 @@ class AdminContacts extends Component
         $this->resetPage();
     }
 
-    // モーダル表示
+    public function export()
+    {
+        $query = Contact::with('category');
+
+        if ($this->searchText !== '') {
+            $query->where(function ($q) {
+                $q->where('first_name', 'like', "%{$this->searchText}%")
+                    ->orWhere('last_name', 'like', "%{$this->searchText}%")
+                    ->orWhereRaw("CONCAT(last_name, first_name) LIKE ?", ["%{$this->searchText}%"])
+                    ->orWhere('email', 'like', "%{$this->searchText}%");
+            });
+        }
+
+        if ($this->searchGender !== '' && $this->searchGender !== 'all') {
+            $query->where('gender', $this->searchGender);
+        }
+
+        if ($this->searchCategory !== '') {
+            $query->where('category_id', $this->searchCategory);
+        }
+
+        if ($this->searchDate !== '') {
+            $query->whereDate('created_at', $this->searchDate);
+        }
+
+        $contacts = $query->get();
+
+        $csvHeader = ['ID', 'お名前', '性別', 'メールアドレス', '電話番号', '住所', '建物名', 'お問い合わせの種類', 'お問い合わせ内容', '作成日'];
+        $callback = function() use ($contacts, $csvHeader) {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, $csvHeader);
+
+            foreach ($contacts as $c) {
+                fputcsv($file, [
+                    $c->id,
+                    $c->full_name,
+                    $c->gender_label,
+                    $c->email,
+                    $c->tel,
+                    $c->address,
+                    $c->building,
+                    $c->category->content,
+                    $c->detail,
+                    $c->created_at,
+                ]);
+            }
+            fclose($file);
+        };
+
+        return response()->streamDownload($callback, 'contacts.csv');
+    }
+
+    // モーダル
     public function showDetail($id)
     {
         $this->selectedContact = Contact::with('category')->find($id);
     }
 
-    // モーダルクローズ
     public function closeModal()
     {
         $this->selectedContact = null;

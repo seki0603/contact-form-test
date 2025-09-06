@@ -39,7 +39,7 @@
 
 	<div class="content__item">
 		<div class="content__csv">
-			<button>エクスポート</button>
+			<button wire:click="export">エクスポート</button>
 		</div>
 		<div class="content-pagination">
 			{{ $contacts->links() }}
